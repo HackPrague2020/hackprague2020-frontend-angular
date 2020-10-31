@@ -6,7 +6,7 @@
              aria-label="Number"
              matInput
              [value]="ticker"
-             (input)="inputChanged($event.target.value)"
+             (input)="null"
              [formControl]="myControl"
              [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="inputChanged($event.option.value)">
