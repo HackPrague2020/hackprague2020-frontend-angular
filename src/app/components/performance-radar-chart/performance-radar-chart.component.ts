@@ -14,16 +14,62 @@ export class PerformanceRadarChartComponent implements OnInit {
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
   };
-  public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 
-  public radarChartData: ChartDataSets[] = [
-    { data: [65, 59, 90, 81, 56, 55, 40], label: 'Series A' },
+
+  // List of JSON keys can be found at https://financialmodelingprep.com/developer/docs/#Company-Financial-Ratios
+  public  radarChartConfigs = [
+    {
+      label: 'Price-Earnings Ratio',
+      jsonKey: 'peRatioTTM'
+    },
+    {
+      label: 'Price to Sales Ratio',
+      jsonKey: 'priceToSalesRatioTTM'
+    },
+    {
+      label: 'Debt to Equity Ratio',
+      jsonKey: 'debtToEquityTTM'
+    },
+    {
+      label: 'Payout Ratio',
+      jsonKey: 'payoutRatioTTM'
+    },
+    {
+      label: 'Revenue per Share',
+      jsonKey: 'revenuePerShareTTM'
+    }
+
   ];
+  public radarChartLabels: Label[];
+
+  public radarChartData: ChartDataSets[];
   public radarChartType: ChartType = 'radar';
+  public dataLoaded: boolean = false;
 
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
+    let symbol = 'AAPL';
+    this.stockDataService.getKeyMetrics(symbol).subscribe(data => {
+      let financialRatios = data[0];
+      console.log('Financial Ratios');
+      console.log(financialRatios);
+
+      this.radarChartData = [{
+        data: [],
+        label: symbol
+      }];
+
+      this.radarChartLabels = [];
+
+      this.radarChartConfigs.forEach(config => {
+        this.radarChartData[0].data.push(financialRatios[config.jsonKey]);
+        this.radarChartLabels.push(config.label);
+      });
+
+      this.dataLoaded = true;
+
+    })
 
   }
 

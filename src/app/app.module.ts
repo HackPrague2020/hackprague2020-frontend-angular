@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PerformanceRadarChartComponent } from './components/performance-radar-chart/performance-radar-chart.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PerformanceRadarChartComponent } from './components/performance-radar-c
     MatAutocompleteModule,
     MatInputModule,
     MatButtonToggleModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
