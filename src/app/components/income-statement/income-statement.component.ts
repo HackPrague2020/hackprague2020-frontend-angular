@@ -12,7 +12,7 @@ export class IncomeStatementComponent implements OnInit {
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
-    this.stockDataService.getData().subscribe(data => {
+    this.stockDataService.getIncomeStatement('AAPL', 'quarter', 10).subscribe(data => {
       console.log(data);
       this.sample_data = JSON.stringify(data);
     })
