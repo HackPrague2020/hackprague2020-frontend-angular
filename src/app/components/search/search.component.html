@@ -5,9 +5,11 @@
              placeholder="Pick a stock!"
              aria-label="Number"
              matInput
+             [value]="ticker"
+             (input)="inputChanged($event.target.value)"
              [formControl]="myControl"
              [matAutocomplete]="auto">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="inputChanged($event.option.value)">
         <mat-option *ngFor="let option of filteredOptions | async | slice : 0 : 10" [value]="option">
           {{option}}
         </mat-option>
