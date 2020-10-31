@@ -51,12 +51,11 @@
         <app-bank-svg></app-bank-svg>
         <app-search></app-search>
 
-
         <mat-card class="card main-card">
             <mat-card-header>
-                <mat-card-title>20{{ getReadableQuarter(quarterIndex) }} Income Statement</mat-card-title>
-                <mat-card-subtitle>TSLA</mat-card-subtitle>
-                <div style="text-align: right">
+                <mat-card-title>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-title>
+                <mat-card-subtitle>{{ selectedTicker }}</mat-card-subtitle>
+                <div style="text-align: right; margin-left: 40px">
                     <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
                         <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
                         <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
