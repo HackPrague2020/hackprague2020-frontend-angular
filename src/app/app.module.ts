@@ -15,6 +15,7 @@ import {ChartsModule} from 'ng2-charts';
 import { StockPriceChartComponent } from './stock-price-chart/stock-price-chart.component'
 import {LemonadeDiagramComponent} from './components/lemonade-diagram/lemonade-diagram.component';
 import { SearchComponent } from './components/search/search.component';
+import { ShortNumberPipe } from './pipes/short-number.pipe';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
@@ -27,7 +28,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LemonadeDiagramComponent,
     IncomeStatementComponent,
     StockPriceChartComponent,
-    SearchComponent
+    SearchComponent,
+    ShortNumberPipe
   ],
   imports: [
     BrowserModule,
