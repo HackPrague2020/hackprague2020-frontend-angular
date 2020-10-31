@@ -14,7 +14,7 @@
                     <mat-card-subtitle>{{ selectedTicker }}: $305.80</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <app-stock-price-chart></app-stock-price-chart>
+                    <app-stock-price-chart [ticker]="selectedTicker"></app-stock-price-chart>
                     <mat-slider 
                         thumbLabel 
                         [value]="20 - quarterIndex" 

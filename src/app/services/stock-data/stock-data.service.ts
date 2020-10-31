@@ -18,9 +18,12 @@ export class StockDataService {
     return this.http.get(`${this.baseUrl}/quote/${symbol}?apikey=${this.key}`)
   }
 
+  getStockPrice(symbol: string) {
+    return this.http.get(`${this.baseUrl}/historical-price-full/${symbol}?apikey=${this.key}&serietype=line`)
+  }
+
   // period in ['quarter']
   getIncomeStatement(symbol: string, period: string, limit: number){
     return this.http.get(`${this.baseUrl}/income-statement/${symbol}?period=${period}&limit=${limit}&apikey=${this.key}`)
-
   }
 }
