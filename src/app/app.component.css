@@ -1,2 +1,29 @@
-.app-content { margin: auto; max-width: 800px; padding: 10px; }
-.card { margin: 20px; }
+.app-content { margin: auto; max-width: 800px; padding: 10px; min-height: 90vh; }
+.card { margin: 10px; }
+
+.app-container {
+  min-height: 100vh;
+  background-color: #FAFAFA;
+}
+
+.app-content {
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.app-toolbar {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+h3.app-toolbar {
+    padding-left: 16px;
+    padding-right: 32px;
+}
+
+.app-footer {
+  background-color: #DEDEDE;
+  /* color: mat-color($primary, default-contrast); */
+  padding: 16px 32px;
+  /* text-align: right; */
+}

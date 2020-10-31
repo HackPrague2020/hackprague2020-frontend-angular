@@ -9,6 +9,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import {ChartsModule} from 'ng2-charts';
 import { StockPriceChartComponent } from './stock-price-chart/stock-price-chart.component'
 import {LemonadeDiagramComponent} from './components/lemonade-diagram/lemonade-diagram.component';
@@ -30,6 +31,7 @@ import { SearchComponent } from './components/search/search.component';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    MatListModule,
     ChartsModule,
   ],
   providers: [],
