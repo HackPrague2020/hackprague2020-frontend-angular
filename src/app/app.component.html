@@ -39,8 +39,6 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <mat-card class="card main-card">
-            <mat-card-header>
                 <div style="display:flex;justify-content:center;width:100%;flex-direction:column">
                     <div style="display:flex;justify-content:center;width:100%;">
                         <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
@@ -52,23 +50,19 @@
                         <h1 style="padding:50px">What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </h1>
                     </div>
                 </div>
-            </mat-card-header>
-            <mat-card-content>
                 <app-income-statement
                   [ticker]="selectedTicker"
                   [quarterIndex]="quarterIndex"
                   [absoluteValues]="mode == 'abs'"
                   (lengthEvent)="logLength($event)">
                 </app-income-statement>
-            </mat-card-content>
-        </mat-card>
     </div>
 
 
     <app-performance-radar-chart></app-performance-radar-chart>
 
     <footer class="app-footer">
-        <span class="mat-caption">© BitConeeeect 2020</span>
+        <span class="mat-caption"></span>
     </footer>
 
 </div>
