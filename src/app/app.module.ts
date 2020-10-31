@@ -12,13 +12,15 @@ import { MatCardModule } from '@angular/material/card';
 import {ChartsModule} from 'ng2-charts';
 import { StockPriceChartComponent } from './stock-price-chart/stock-price-chart.component'
 import {LemonadeDiagramComponent} from './components/lemonade-diagram/lemonade-diagram.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LemonadeDiagramComponent,
     IncomeStatementComponent,
-    StockPriceChartComponent
+    StockPriceChartComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
