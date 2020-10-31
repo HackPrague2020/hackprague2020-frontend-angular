@@ -30,7 +30,7 @@ import { PerformanceRadarChartComponent } from './components/performance-radar-c
     IncomeStatementComponent,
     StockPriceChartComponent,
     SearchComponent,
-    PerformanceRadarChartComponent
+    PerformanceRadarChartComponent,
     ShortNumberPipe
   ],
   imports: [
