@@ -5,6 +5,7 @@
     </mat-toolbar>
 
   <app-search></app-search>
+  <app-performance-radar-chart></app-performance-radar-chart>
 
     <div class="app-content">
         <div style="display: flex">
@@ -15,11 +16,11 @@
                 </mat-card-header>
                 <mat-card-content>
                     <app-stock-price-chart [ticker]="selectedTicker"></app-stock-price-chart>
-                    <mat-slider 
-                        thumbLabel 
-                        [value]="23 - quarterIndex" 
+                    <mat-slider
+                        thumbLabel
+                        [value]="23 - quarterIndex"
                         (input)="quarterIndex = 23 - $event.value"
-                        tickInterval="1" 
+                        tickInterval="1"
                         [displayWith]="formatQuarter"
                         min="1" max="23"
                         style="width: 100%"></mat-slider>
@@ -41,7 +42,6 @@
         </div>
 
         <app-lemonade-diagram></app-lemonade-diagram>
-        <app-search></app-search>
 
 
         <mat-card class="card main-card">
@@ -56,7 +56,7 @@
                 </div>
             </mat-card-header>
             <mat-card-content>
-                <app-income-statement 
+                <app-income-statement
                   [ticker]="selectedTicker"
                   [quarterIndex]="quarterIndex"
                   [absoluteValues]="mode == 'abs'"
