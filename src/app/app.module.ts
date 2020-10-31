@@ -9,11 +9,18 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {ChartsModule} from 'ng2-charts';
+import { StockPriceChartComponent } from './stock-price-chart/stock-price-chart.component'
+import {LemonadeDiagramComponent} from './components/lemonade-diagram/lemonade-diagram.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeStatementComponent
+    LemonadeDiagramComponent,
+    IncomeStatementComponent,
+    StockPriceChartComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
