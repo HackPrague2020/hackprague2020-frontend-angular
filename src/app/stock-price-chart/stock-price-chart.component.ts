@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { lineGraphColors, lineGraphOptionsDefaults } from '../utils/graph-defaults'
@@ -12,10 +12,26 @@ import {StockDataService} from '../services/stock-data/stock-data.service';
 export class StockPriceChartComponent implements OnInit, OnChanges {
 
   @Input() ticker: string;
+  @Input() quarterIndex: number;
+  @Input() formatQuarter;
+  @Output() sliderValueChange = new EventEmitter<any>();
+
+  numOfQuarters = 23;
+
+
+  onSliderChange(newIndex){
+    this.quarterIndex = this.numOfQuarters - newIndex;
+    let closePrices = this.lineChartData[0]["data"];
+    let numOfDays = closePrices.length;
+    let daysPerQuarter = Math.floor(numOfDays / this.numOfQuarters);
+    let dayIndex = (numOfDays - daysPerQuarter * this.quarterIndex) - 1;
+    this.sliderValueChange.emit(closePrices[dayIndex])
+  }
+
 
   public lineChartData: ChartDataSets[] = [
     {
-      data: [], 
+      data: [],
       label: this.ticker,
       lineTension: 0.2,
     },
@@ -55,6 +71,7 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
         this.lineChartData[0]["data"].push(day.close);
         this.lineChartLabels.push(day.date);
       }
+      this.sliderValueChange.emit(this.lineChartData[0]["data"][this.lineChartData[0]["data"].length - 1])
     });
   }
 

@@ -9,3 +9,11 @@
     [plugins]="lineChartPlugins">
   </canvas>
 </div>
+<mat-slider
+  thumbLabel
+  [value]="23 - quarterIndex"
+  (input)="onSliderChange($event.value)"
+  tickInterval="1"
+  [displayWith]="formatQuarter"
+  min="1" max="23"
+  style="width: 100%"></mat-slider>

@@ -52,9 +52,6 @@ export class PerformanceRadarChartComponent implements OnInit {
     let symbol = 'AAPL';
     this.stockDataService.getKeyMetrics(symbol).subscribe(data => {
       let financialRatios = data[0];
-      console.log('Financial Ratios');
-      console.log(financialRatios);
-
       this.radarChartData = [{
         data: [],
         label: symbol
