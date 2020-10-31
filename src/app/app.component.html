@@ -5,7 +5,6 @@
     </mat-toolbar>
 
   <app-search [(ticker)]="selectedTicker"></app-search>
-  <app-performance-radar-chart></app-performance-radar-chart>
 
     <div class="app-content">
         <div style="display: flex">
@@ -40,17 +39,6 @@
                 </mat-card-content>
             </mat-card>
         </div>
-
-        <app-lemonade-diagram></app-lemonade-diagram>
-        <app-limo-svg></app-limo-svg>
-        <app-right-arrow-svg></app-right-arrow-svg>
-        <app-lemon></app-lemon>
-        <app-right-arrow-svg></app-right-arrow-svg>
-        <app-lemonade-stand-svg></app-lemonade-stand-svg>
-        <app-right-arrow-svg></app-right-arrow-svg>
-        <app-bank-svg></app-bank-svg>
-        <app-search></app-search>
-
         <mat-card class="card main-card">
             <mat-card-header>
                 <mat-card-title>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-title>
@@ -72,6 +60,9 @@
             </mat-card-content>
         </mat-card>
     </div>
+
+
+    <app-performance-radar-chart></app-performance-radar-chart>
 
     <footer class="app-footer">
         <span class="mat-caption">© BitConeeeect 2020</span>
