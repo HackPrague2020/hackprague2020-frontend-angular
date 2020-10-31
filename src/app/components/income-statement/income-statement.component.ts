@@ -7,14 +7,17 @@ import {StockDataService} from '../../services/stock-data/stock-data.service';
   styleUrls: ['./income-statement.component.css']
 })
 export class IncomeStatementComponent implements OnInit {
-  sample_data: any;
+  incomeStatement: any;
 
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
+
+  }
+
+  getIncomeInfo(){
     this.stockDataService.getIncomeStatement('AAPL', 'quarter', 10).subscribe(data => {
-      console.log(data);
-      this.sample_data = JSON.stringify(data);
+      console.log(JSON.stringify(data));
     })
   }
 

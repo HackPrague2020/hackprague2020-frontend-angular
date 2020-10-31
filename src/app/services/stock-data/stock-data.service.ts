@@ -5,26 +5,22 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class StockDataService {
-
-  // Example calls at https://financialmodelingprep.com/developer/docs/
-  baseUrl = 'https://financialmodelingprep.com/api/v3';
+  baseUrl = 'https://financialmodelingprep.com/api/v3/';
+  key = '6292b64f1ce8460863ec8295d9623d9c';
 
   constructor(private http: HttpClient) { }
 
   getProfile(symbol: string){
-    return this.http.get(`${this.baseUrl}/profile/${symbol}?apikey=demo`)
+    return this.http.get(`${this.baseUrl}/profile/${symbol}?apikey=${this.key}`)
   }
 
   getCompanyQuote(symbol: string){
-    return this.http.get(`${this.baseUrl}/quote/${symbol}?apikey=demo`)
+    return this.http.get(`${this.baseUrl}/quote/${symbol}?apikey=${this.key}`)
   }
 
   // period in ['quarter']
   getIncomeStatement(symbol: string, period: string, limit: number){
-    return this.http.get(`${this.baseUrl}/income-statement/${symbol}?period=${period}&limit=${limit}&apikey=demo`)
+    return this.http.get(`${this.baseUrl}/income-statement/${symbol}?period=${period}&limit=${limit}&apikey=${this.key}`)
+
   }
-
-
-
-
 }

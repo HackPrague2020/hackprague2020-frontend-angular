@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "hackprague2020-frontend-angular"
+  "defaultProject": "hackprague2020-frontend-angular",
+  "cli": {
+    "analytics": "40c8c4c6-8227-4e46-a5d7-3ad6cf69d3de"
+  }
 }
