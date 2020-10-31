@@ -1,9 +1,5 @@
 <div class="app-container">
-
-
-
-
-  <mat-toolbar color="primary" class="app-toolbar mat-elevation-z5">
+    <mat-toolbar color="primary" class="app-toolbar mat-elevation-z5">
         <h3>Lemonade</h3>
         <button mat-button>LINK</button>
     </mat-toolbar>
@@ -13,11 +9,18 @@
             <mat-card class="card" style="width: 70%;">
                 <mat-card-header>
                     <mat-card-title>Tesla Inc.</mat-card-title>
-                    <mat-card-subtitle>TSLA: $305.80</mat-card-subtitle>
+                    <mat-card-subtitle>{{ selectedTicker }}: $305.80</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                     <app-stock-price-chart></app-stock-price-chart>
-                    <mat-slider style="width: 100%"></mat-slider>
+                    <mat-slider 
+                        thumbLabel 
+                        [value]="20 - quarterIndex" 
+                        (input)="quarterIndex = 20 - $event.value"
+                        tickInterval="1" 
+                        [displayWith]="formatQuarter"
+                        min="1" max="20"
+                        style="width: 100%"></mat-slider>
                 </mat-card-content>
             </mat-card>
 
@@ -27,30 +30,21 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-selection-list [multiple]="false">
-                        <mat-list-option>
-                            GOOG
-                        </mat-list-option>
-                        <mat-list-option>
-                            AAPL
-                        </mat-list-option>
-                        <mat-list-option>
-                            BYND
-                        </mat-list-option>
-                        <mat-list-option>
-                            INTC
+                        <mat-list-option *ngFor="let ticker of tickers" (click)="selectedTicker=ticker">
+                            {{ ticker }}
                         </mat-list-option>
                     </mat-selection-list>
                 </mat-card-content>
             </mat-card>
         </div>
 
-      <app-lemonade-diagram></app-lemonade-diagram>
-      <app-search></app-search>
-      
+        <app-lemonade-diagram></app-lemonade-diagram>
+        <app-search></app-search>
+
 
         <mat-card class="card main-card">
             <mat-card-header>
-                <mat-card-title>Q4 Income Statement</mat-card-title>
+                <mat-card-title>20{{ getReadableQuarter(quarterIndex) }} Income Statement</mat-card-title>
                 <mat-card-subtitle>TSLA</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>

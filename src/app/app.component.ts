@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hackprague2020-frontend-angular';
+  quarterIndex = 0;
+  tickers = ["GOOG", "BYND", "INTC"];
+  selectedTicker = "TSLA";
+
+  formatQuarter(quarter: number) {
+    return Math.floor(15 + quarter / 4) + "Q" + (1 + (quarter % 4));
+  }
+
+  getReadableQuarter(quarter: number) {
+    return this.formatQuarter(20 - this.quarterIndex);
+  }
 }
