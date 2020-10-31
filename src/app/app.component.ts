@@ -10,6 +10,7 @@ export class AppComponent {
   quarterIndex = 0;
   tickers = ["GOOG", "AAPL", "INTC", "TSLA"];
   selectedTicker = "TSLA";
+  selectedStockPrice: number;
   mode = "rel";
 
   formatQuarter(quarter: number) {
@@ -19,7 +20,7 @@ export class AppComponent {
   getReadableQuarter(quarter: number) {
     return this.formatQuarter(23 - this.quarterIndex);
   }
-  
+
   logLength(event){
     console.log(event);
   }

@@ -10,19 +10,17 @@
         <div style="display: flex">
             <mat-card class="card" style="width: 70%;">
                 <mat-card-header>
-                    <mat-card-title>Tesla Inc.</mat-card-title>
-                    <mat-card-subtitle>{{ selectedTicker }}: $305.80</mat-card-subtitle>
+                    <mat-card-title>{{selectedTicker}}</mat-card-title>
+                    <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice}}$</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <app-stock-price-chart [ticker]="selectedTicker"></app-stock-price-chart>
-                    <mat-slider
-                        thumbLabel
-                        [value]="23 - quarterIndex"
-                        (input)="quarterIndex = 23 - $event.value"
-                        tickInterval="1"
-                        [displayWith]="formatQuarter"
-                        min="1" max="23"
-                        style="width: 100%"></mat-slider>
+                    <app-stock-price-chart
+                      [ticker]="selectedTicker"
+                      (sliderValueChange)="selectedStockPrice=$event"
+                      [quarterIndex]="quarterIndex"
+                      [formatQuarter]="formatQuarter"
+
+                    ></app-stock-price-chart>
                 </mat-card-content>
             </mat-card>
 
