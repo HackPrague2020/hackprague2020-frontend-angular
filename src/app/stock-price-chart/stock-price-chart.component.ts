@@ -48,14 +48,13 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes) {
     this.stockDataService.getStockPrice(this.ticker).subscribe(data => {
-      let newData = [];
       this.lineChartLabels = [];
+      this.lineChartData[0].data = [];
       for (const day of data["historical"].slice(0, 365*5).reverse()) {
-        // this.lineChartData[0]["data"].push(day.close);
-        newData.push(day.close);
+        if (parseInt(day.date.slice(0, 4)) < 2015) continue;
+        this.lineChartData[0]["data"].push(day.close);
         this.lineChartLabels.push(day.date);
       }
-      this.lineChartData[0].data = newData;
     });
   }
 

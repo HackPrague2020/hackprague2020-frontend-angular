@@ -17,11 +17,11 @@
                     <app-stock-price-chart [ticker]="selectedTicker"></app-stock-price-chart>
                     <mat-slider 
                         thumbLabel 
-                        [value]="20 - quarterIndex" 
-                        (input)="quarterIndex = 20 - $event.value"
+                        [value]="23 - quarterIndex" 
+                        (input)="quarterIndex = 23 - $event.value"
                         tickInterval="1" 
                         [displayWith]="formatQuarter"
-                        min="1" max="20"
+                        min="1" max="23"
                         style="width: 100%"></mat-slider>
                 </mat-card-content>
             </mat-card>
@@ -48,8 +48,15 @@
             <mat-card-header>
                 <mat-card-title>20{{ getReadableQuarter(quarterIndex) }} Income Statement</mat-card-title>
                 <mat-card-subtitle>TSLA</mat-card-subtitle>
+                <div style="text-align: right">
+                    <mat-button-toggle-group appearance="legacy" name="mode">
+                        <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
+                        <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
             </mat-card-header>
             <mat-card-content>
+
                 <app-income-statement [ticker]="selectedTicker" [quarterIndex]="quarterIndex" (lengthEvent)="logLength($event)">
 
                 </app-income-statement>

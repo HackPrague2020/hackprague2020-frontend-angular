@@ -18,6 +18,7 @@ import { SearchComponent } from './components/search/search.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -43,6 +44,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatAutocompleteModule,
     MatInputModule,
+    MatButtonToggleModule,
     BrowserAnimationsModule
   ],
   providers: [],
