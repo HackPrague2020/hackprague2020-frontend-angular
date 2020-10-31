@@ -21,6 +21,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PerformanceRadarChartComponent } from './components/performance-radar-chart/performance-radar-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     IncomeStatementComponent,
     StockPriceChartComponent,
     SearchComponent,
+    PerformanceRadarChartComponent
     ShortNumberPipe
   ],
   imports: [
