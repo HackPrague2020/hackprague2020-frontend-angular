@@ -1,13 +1,11 @@
-<h3>Imagine Intel as a lemonade stand, what would it's numbers look like if you invested $100?</h3>
+<!-- <h3>Imagine Intel as a lemonade stand, what would it's numbers look like if you invested $100?</h3>
 <p>Selling lemonade for: ${{revenue | shortNumber}}</p>
 <p>Considering the cost of lemons the gross profit is: ${{grossProfit | shortNumber}}</p>
 <p>After paying wages and other: ${{operatingIncome | shortNumber}}</p>
-<p>Sadly, the lemonade company has to pay taxes and interest, the reamining profit is: ${{netIncome | shortNumber}}</p>
-<?xml version="1.0" encoding="utf-8"?>
+<p>Sadly, the lemonade company has to pay taxes and interest, the reamining profit is: ${{netIncome | shortNumber}}</p> -->
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="898.478px" height="854.348px" viewBox="0 0 898.478 854.348" enable-background="new 0 0 898.478 854.348"
+	 width="100%" height="100%" viewBox="0 0 898.478 854.348" enable-background="new 0 0 898.478 854.348"
 	 xml:space="preserve">
 <g id="XMLID_906_">
 	<ellipse id="XMLID_909_" fill="#FFE165" cx="83.716" cy="365.68" rx="63.383" ry="47.838"/>
@@ -217,7 +215,7 @@
 		<circle fill="#FFD01F" cx="503.097" cy="400.118" r="10.826"/>
 	</g>
 	<rect x="431.886" y="390.005" fill="none" width="72.929" height="26.354"/>
-	<text transform="matrix(1 0 0 1 438.3628 409.8848)" fill="#564500" font-family="'MyriadPro-BoldIt'" font-size="28">TSLA</text>
+	<text transform="matrix(1 0 0 1 467.3628 409.8848)" fill="#564500" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="28" text-anchor="middle">{{ticker}}</text>
 </g>
 <g>
 	<path fill="#D2FCFF" d="M500.701,329.552l0.259,3.305l1.28,16.328c0.083,1.046,0.955,1.852,2.004,1.852h2.992
@@ -392,13 +390,13 @@
 	</g>
 </g>
 <rect x="577.149" y="318.431" fill="none" width="178.729" height="41.32"/>
-<text transform="matrix(1 0 0 1 596.1118 351.0903)" fill="#6CA529" font-family="'MyriadPro-BoldIt'" font-size="46">+$1.3B</text>
+<text transform="matrix(1 0 0 1 589.2026 353.3906)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="46">+${{revenue | shortNumber}}</text>
 <rect x="164.853" y="331.568" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 194.6919 357.1279)" fill="#C64530" font-family="'MyriadPro-BoldIt'" font-size="36">-$753M</text>
+<text transform="matrix(1 0 0 1 177.3301 358.9282)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(costOfRevenue)">-${{costOfRevenue | shortNumber}}</text>
 <rect x="244.839" y="211.348" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 294.52 228.3877)" fill="#C64530" font-family="'MyriadPro-BoldIt'" font-size="24">-$220M</text>
+<text transform="matrix(1 0 0 1 282.9453 229.5874)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(otherExpenses)">-${{otherExpenses | shortNumber}}</text>
 <rect x="492.861" y="211.348" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 549.1558 225.5474)" fill="#C64530" font-family="'MyriadPro-BoldIt'" font-size="20">-$128M</text>
+<text transform="matrix(1 0 0 1 539.5112 226.5474)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(administrativeExpense)">-${{administrativeExpense | shortNumber}}</text>
 <g id="g1237" transform="translate(-0.81857823,5.9346921)">
 	<g id="g703" transform="matrix(0.09111509,0,0,0.05567534,30.086765,135.95622)">
 		<g id="g628">
@@ -703,7 +701,7 @@
 		c0.313,0.635,0.555,1.13,0.727,1.511c0.155,0.339,0.235,0.514,0.235,0.514L466.721,559.08z"/>
 </g>
 <rect x="241.149" y="607.431" fill="none" width="178.729" height="41.32"/>
-<text transform="matrix(1 0 0 1 248.1519 640.0898)" fill="#6CA529" font-family="'MyriadPro-BoldIt'" font-size="46">+$460M</text>
+<text transform="matrix(1 0 0 1 400.1616 642.3906)" [attr.fill]="netIncome >= 0 ? '#6CA529' : '#C64530'" font-family="'Roboto'" font-style="italic" text-anchor="end" font-weight="bold" [attr.font-size]="46 * scale(netIncome)">{{ netIncome >= 0 ? "+" : "-" }}${{ netIncome | abs | shortNumber}}</text>
 <g>
 	<g>
 		<path fill="#333333" d="M557.852,623.803c0,0,1.256,0.045,3.608-0.028c2.352-0.075,5.8-0.268,10.157-0.791
@@ -787,7 +785,7 @@
 		"/>
 </g>
 <rect x="623.425" y="527.92" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 679.7202 542.1191)" fill="#C64530" font-family="'MyriadPro-BoldIt'" font-size="20">-$128M</text>
+<text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20">-$128M</text>
 <g transform="translate(0 -540.36)">
 	<g>
 		<path fill="#CA639A" d="M465.627,1389.762l-5.352-2.848l-2.88,4.757l5.384,3.036L465.627,1389.762z"/>
@@ -952,5 +950,5 @@
 	</g>
 </g>
 <rect x="286.924" y="809.994" fill="none" width="178.729" height="41.32"/>
-<text transform="matrix(1 0 0 1 323.6494 832.7139)" fill="#6CA529" font-family="'MyriadPro-BoldIt'" font-size="32">+$322k</text>
+<text transform="matrix(1 0 0 1 306.1787 834.3145)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="32">+$322k</text>
 </svg>
