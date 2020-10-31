@@ -38,7 +38,7 @@ export class IncomeStatementComponent implements OnInit {
       let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
       this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
         let price = dataPrice[0].price;
-        let marketCap = this.absoluteValues ? 1 : shares*price;
+        let marketCap = this.absoluteValues ? 1 : shares*price/100;
         this.revenue = revenue/marketCap;
         this.costOfRevenue = costOfRevenue/marketCap;
         this.grossProfit = grossProfit/marketCap;
