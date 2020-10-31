@@ -4,14 +4,15 @@
         <button mat-button>LINK</button>
     </mat-toolbar>
 
-  <app-search [(ticker)]="selectedTicker"></app-search>
+  <app-search [ticker]="selectedTicker" (tickerChange)="changeTicker($event)"></app-search>
 
     <div class="app-content">
         <div style="display: flex">
             <mat-card class="card" style="width: 70%;">
                 <mat-card-header>
-                    <mat-card-title>{{selectedTicker}}</mat-card-title>
+                    <mat-card-title>{{companyName}}</mat-card-title>
                     <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice}}$</mat-card-subtitle>
+                    <mat-card-subtitle>{{ companyDescription }}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                     <app-stock-price-chart
@@ -30,7 +31,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-selection-list [multiple]="false">
-                        <mat-list-option *ngFor="let ticker of tickers" (click)="selectedTicker=ticker">
+                        <mat-list-option *ngFor="let ticker of tickers" (click)="changeTicker(ticker)">
                             {{ ticker }}
                         </mat-list-option>
                     </mat-selection-list>

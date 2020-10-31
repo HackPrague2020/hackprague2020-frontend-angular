@@ -25,7 +25,6 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
     let numOfDays = closePrices.length;
     let daysPerQuarter = Math.floor(numOfDays / this.numOfQuarters);
     let dayIndex = (numOfDays - daysPerQuarter * this.quarterIndex) - 1;
-    console.log(dayIndex);
     this.sliderValueChange.emit(closePrices[dayIndex])
   }
 
