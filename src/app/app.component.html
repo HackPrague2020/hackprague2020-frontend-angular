@@ -41,13 +41,16 @@
         </div>
         <mat-card class="card main-card">
             <mat-card-header>
-                <mat-card-title>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-title>
-                <mat-card-subtitle>{{ selectedTicker }}</mat-card-subtitle>
-                <div style="text-align: right; margin-left: 40px">
-                    <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
-                        <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
-                        <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
-                    </mat-button-toggle-group>
+                <div style="display:flex;justify-content:center;width:100%;flex-direction:column">
+                    <div style="display:flex;justify-content:center;width:100%;">
+                        <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
+                            <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
+                            <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
+                        </mat-button-toggle-group>
+                    </div>
+                    <div style="display:flex;justify-content:center;width:100%;">
+                        <h1 style="padding:50px">What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </h1>
+                    </div>
                 </div>
             </mat-card-header>
             <mat-card-content>
