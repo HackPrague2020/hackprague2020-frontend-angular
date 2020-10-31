@@ -28,6 +28,7 @@ import { LemonadeStandSvgComponent } from './components/lemonade-stand-svg/lemon
 import { BankSvgComponent } from './components/bank-svg/bank-svg.component';
 import { RightArrowSvgComponent } from './components/right-arrow-svg/right-arrow-svg.component';
 import { RightDownArrowSvgComponent } from './components/right-down-arrow-svg/right-down-arrow-svg.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RightDownArrowSvgComponent } from './components/right-down-arrow-svg/ri
     MatAutocompleteModule,
     MatInputModule,
     MatButtonToggleModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

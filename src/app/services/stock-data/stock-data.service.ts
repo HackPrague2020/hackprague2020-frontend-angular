@@ -26,4 +26,13 @@ export class StockDataService {
   getIncomeStatement(symbol: string, period: string, limit: number){
     return this.http.get(`${this.baseUrl}/income-statement/${symbol}?period=${period}&limit=${limit}&apikey=${this.key}`)
   }
+
+  getFinancialRatios(symbol: string) {
+    return this.http.get(`${this.baseUrl}/ratios-ttm/${symbol}?apikey=${this.key}`)
+  }
+
+  getKeyMetrics(symbol: string) {
+    return this.http.get(`${this.baseUrl}/key-metrics-ttm/${symbol}?apikey=${this.key}`)
+  }
+
 }
