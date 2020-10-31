@@ -18,4 +18,8 @@ export class AppComponent {
   getReadableQuarter(quarter: number) {
     return this.formatQuarter(20 - this.quarterIndex);
   }
+  
+  logLength(event){
+    console.log(event);
+  }
 }

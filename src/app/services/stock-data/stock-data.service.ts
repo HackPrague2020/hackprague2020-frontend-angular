@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class StockDataService {
   baseUrl = 'https://financialmodelingprep.com/api/v3/';
-  key = '6292b64f1ce8460863ec8295d9623d9c';
+  key = '80052a37cc19b8e06a2018b9f0dfa01b';
 
   constructor(private http: HttpClient) { }
 

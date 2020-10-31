@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import {StockDataService} from '../../services/stock-data/stock-data.service';
 
 @Component({
@@ -7,7 +7,9 @@ import {StockDataService} from '../../services/stock-data/stock-data.service';
   styleUrls: ['./income-statement.component.css']
 })
 export class IncomeStatementComponent implements OnInit {
-  ticker = 'TSLA';
+  @Input() ticker:string;
+  @Input() quarterIndex:number;
+  @Output() lengthEvent = new EventEmitter<number>();
   revenue = 0;
   costOfRevenue = 0;
   operatingIncome = 0;
@@ -15,17 +17,20 @@ export class IncomeStatementComponent implements OnInit {
   grossProfit = 0;
   otherExpenses = 0;
   netIncome = 0;
+  statementsLength = 0;
 
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(): void{
     this.updateCurrentIncomeStatement();
   }
 
-
   updateCurrentIncomeStatement(absoluteValues?:boolean){
-    this.stockDataService.getIncomeStatement(this.ticker, 'year', 1).subscribe(dataStatement => {
-      let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[0];
+    this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 10).subscribe(dataStatement => {
+      let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
       this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
         let price = dataPrice[0].price;
         let marketCap = absoluteValues ? 1 : shares*price;
@@ -36,23 +41,10 @@ export class IncomeStatementComponent implements OnInit {
         this.operatingIncome = operatingIncome/marketCap;
         this.interestExpense = interestExpense/marketCap;
         this.netIncome = netIncome/marketCap;
+        //@ts-ignore
+        this.statementsLength = dataStatement?.length;
+        this.lengthEvent.emit(this.statementsLength);
       });
     });
   }
 }
-
-/*ABSOLUTE VALUES
-  updateCurrentIncomeStatement(symbol,){
-    this.stockDataService.getIncomeStatement(symbol, 'year', 1).subscribe(data => {
-      console.log(data[0]);
-      let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome} = data[0];
-      this.revenue = revenue;
-      this.costOfRevenue = costOfRevenue;
-      this.grossProfit = grossProfit;
-      this.otherExpenses = grossProfit - operatingIncome;
-      this.operatingIncome = operatingIncome;
-      this.interestExpense = interestExpense;
-      this.netIncome = netIncome;
-    });
-  }
-*/

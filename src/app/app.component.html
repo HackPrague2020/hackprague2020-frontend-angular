@@ -50,7 +50,7 @@
                 <mat-card-subtitle>TSLA</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <app-income-statement>
+                <app-income-statement [ticker]="selectedTicker" [quarterIndex]="quarterIndex" (lengthEvent)="logLength($event)">
 
                 </app-income-statement>
             </mat-card-content>
