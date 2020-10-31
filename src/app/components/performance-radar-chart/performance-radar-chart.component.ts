@@ -54,18 +54,10 @@ export class PerformanceRadarChartComponent implements OnInit {
   ngOnChanges(): void {
     let symbol = this.ticker;
     this.stockDataService.getKeyMetrics(symbol).subscribe(data => {
-<<<<<<< Updated upstream
-      let financialRatios = data[0];
-      this.radarChartData = [{
-        data: [],
-        label: symbol
-      }];
-=======
 
       let keyMetrics = data[0];
       console.log('keyMetrics');
       console.log(keyMetrics);
->>>>>>> Stashed changes
 
       this.stockDataService.getFinancialRatios(symbol).subscribe(data2 => {
         
