@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import {StockDataService} from '../../services/stock-data/stock-data.service';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-income-statement',
@@ -11,6 +13,7 @@ export class IncomeStatementComponent implements OnInit {
   @Input() quarterIndex:number;
   @Input() absoluteValues:boolean;
   @Output() lengthEvent = new EventEmitter<number>();
+  changeEvents : Subject<string> = new Subject();
   revenue = 0;
   costOfRevenue = 0;
   operatingIncome = 0;
@@ -23,10 +26,11 @@ export class IncomeStatementComponent implements OnInit {
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
+    this.changeEvents.pipe(debounceTime(300)).subscribe(event => this.updateCurrentIncomeStatement());
   }
 
   ngOnChanges(): void{
-    this.updateCurrentIncomeStatement();
+    this.changeEvents.next();
   }
 
   updateCurrentIncomeStatement(){
