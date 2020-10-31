@@ -9,11 +9,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {ChartsModule} from 'ng2-charts';
+import { StockPriceChartComponent } from './stock-price-chart/stock-price-chart.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeStatementComponent
+    IncomeStatementComponent,
+    StockPriceChartComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
