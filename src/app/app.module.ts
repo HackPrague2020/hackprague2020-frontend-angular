@@ -9,11 +9,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { LemonadeDiagramComponent } from './components/lemonade-diagram/lemonade-diagram.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeStatementComponent
+    IncomeStatementComponent,
+    LemonadeDiagramComponent
   ],
   imports: [
     BrowserModule,
