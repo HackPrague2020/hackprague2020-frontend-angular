@@ -23,6 +23,8 @@ export class IncomeStatementComponent implements OnInit {
   netIncome = 0;
   statementsLength = 0;
   administrativeExpense = 0;
+  dividendsAndBuybacks = 0;
+  capex = 0;
 
   constructor(private stockDataService: StockDataService) { }
 
@@ -37,22 +39,27 @@ export class IncomeStatementComponent implements OnInit {
 
   updateCurrentIncomeStatement(){
     this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 10).subscribe(dataStatement => {
-      let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
-      this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
-        let price = dataPrice[0].price;
-        let marketCap = this.absoluteValues ? 1 : shares*price/100;
-        this.revenue = revenue/marketCap;
-        this.costOfRevenue = costOfRevenue/marketCap;
-        this.grossProfit = (revenue-costOfRevenue)/marketCap;
-        this.operatingIncome = operatingIncome/marketCap;
-        this.otherExpenses = (this.grossProfit - this.operatingIncome);
-        this.administrativeExpense = (operatingIncome - netIncome)/marketCap;
-        this.interestExpense = interestExpense/marketCap;
-        this.netIncome = netIncome/marketCap;
-        //@ts-ignore
-        this.statementsLength = dataStatement?.length;
-        this.lengthEvent.emit(this.statementsLength);
-      });
+      this.stockDataService.getCashFlowStatement(this.ticker,'quarter',10).subscribe(cashStatement=>{
+        let cash = cashStatement[0];
+        let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
+        this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
+          let price = dataPrice[0].price;
+          let marketCap = this.absoluteValues ? 1 : shares*price/100;
+          this.revenue = revenue/marketCap;
+          this.costOfRevenue = costOfRevenue/marketCap;
+          this.grossProfit = (revenue-costOfRevenue)/marketCap;
+          this.operatingIncome = operatingIncome/marketCap;
+          this.otherExpenses = (this.grossProfit - this.operatingIncome);
+          this.administrativeExpense = (operatingIncome - netIncome)/marketCap;
+          this.interestExpense = interestExpense/marketCap;
+          this.netIncome = netIncome/marketCap;
+          this.capex = cash.capitalExpenditure/marketCap;
+          this.dividendsAndBuybacks = (cash.dividendsPaid+cash.commonStockRepurchased-cash.commonStockIssued)/marketCap;
+          //@ts-ignore
+          this.statementsLength = dataStatement?.length;
+          this.lengthEvent.emit(this.statementsLength);
+        });
+      })
     });
   }
 
