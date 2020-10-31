@@ -9,6 +9,7 @@ import {StockDataService} from '../../services/stock-data/stock-data.service';
 export class IncomeStatementComponent implements OnInit {
   @Input() ticker:string;
   @Input() quarterIndex:number;
+  @Input() absoluteValues:boolean;
   @Output() lengthEvent = new EventEmitter<number>();
   revenue = 0;
   costOfRevenue = 0;
@@ -28,12 +29,12 @@ export class IncomeStatementComponent implements OnInit {
     this.updateCurrentIncomeStatement();
   }
 
-  updateCurrentIncomeStatement(absoluteValues?:boolean){
+  updateCurrentIncomeStatement(){
     this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 10).subscribe(dataStatement => {
       let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
       this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
         let price = dataPrice[0].price;
-        let marketCap = absoluteValues ? 1 : shares*price;
+        let marketCap = this.absoluteValues ? 1 : shares*price;
         this.revenue = revenue/marketCap;
         this.costOfRevenue = costOfRevenue/marketCap;
         this.grossProfit = grossProfit/marketCap;

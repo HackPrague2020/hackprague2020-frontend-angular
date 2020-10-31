@@ -49,16 +49,18 @@
                 <mat-card-title>20{{ getReadableQuarter(quarterIndex) }} Income Statement</mat-card-title>
                 <mat-card-subtitle>TSLA</mat-card-subtitle>
                 <div style="text-align: right">
-                    <mat-button-toggle-group appearance="legacy" name="mode">
+                    <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
                         <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
                         <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
             </mat-card-header>
             <mat-card-content>
-
-                <app-income-statement [ticker]="selectedTicker" [quarterIndex]="quarterIndex" (lengthEvent)="logLength($event)">
-
+                <app-income-statement 
+                  [ticker]="selectedTicker"
+                  [quarterIndex]="quarterIndex"
+                  [absoluteValues]="mode == 'abs'"
+                  (lengthEvent)="logLength($event)">
                 </app-income-statement>
             </mat-card-content>
         </mat-card>

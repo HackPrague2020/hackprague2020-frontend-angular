@@ -10,6 +10,7 @@ export class AppComponent {
   quarterIndex = 0;
   tickers = ["GOOG", "AAPL", "INTC", "TSLA"];
   selectedTicker = "TSLA";
+  mode = "rel";
 
   formatQuarter(quarter: number) {
     return Math.floor(15 + quarter / 4) + "Q" + (1 + (quarter % 4));
