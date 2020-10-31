@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LemonadeDiagramComponent implements OnInit {
 
+  symbol= 'TSLA';
+  manufacturingCost = 123;
+
   constructor() { }
 
   ngOnInit(): void {
