@@ -46,7 +46,7 @@ If you accept this view, then every company can be, to reasonable degree of accu
 With this, we have an intuitive common ground at which different stocks cant be compared and solid decisions about buying / selling can be made.
 
 ## Demo
-Take a look at how it works at 
+Take a look at how it works at https://www.youtube.com/watch?v=UGBeXVUAckE
 
 ## Live Page:
 Try it out yourself at https://hackprague2020.github.io/hackprague2020-frontend-angular/hackprague2020-frontend-angular/index.html and let us know what you think 
