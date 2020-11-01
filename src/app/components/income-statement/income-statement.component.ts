@@ -12,6 +12,7 @@ export class IncomeStatementComponent implements OnInit {
   @Input() ticker:string;
   @Input() quarterIndex:number;
   @Input() absoluteValues:boolean;
+  @Input() selectedStockPrice:number;
   @Output() lengthEvent = new EventEmitter<number>();
   changeEvents : Subject<string> = new Subject();
   revenue = 0;
@@ -38,12 +39,12 @@ export class IncomeStatementComponent implements OnInit {
   }
 
   updateCurrentIncomeStatement(){
-    this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 10).subscribe(dataStatement => {
-      this.stockDataService.getCashFlowStatement(this.ticker,'quarter',10).subscribe(cashStatement=>{
+    this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 25).subscribe(dataStatement => {
+      this.stockDataService.getCashFlowStatement(this.ticker,'quarter',25).subscribe(cashStatement=>{
         let cash = cashStatement[0];
         let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
         this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
-          let price = dataPrice[0].price;
+          let price = this.quarterIndex ? this.selectedStockPrice : dataPrice[0].price ;
           let marketCap = this.absoluteValues ? 1 : shares*price/100;
           this.revenue = revenue/marketCap;
           this.costOfRevenue = costOfRevenue/marketCap;
@@ -68,14 +69,13 @@ export class IncomeStatementComponent implements OnInit {
   }
 
   showTooltip(evt, text) {
-    console.log(evt)
     let tooltip = document.getElementById("tooltip");
     tooltip.innerHTML = text;
     tooltip.style.display = "block";
     tooltip.style.left = evt.x + 10 + 'px';
     tooltip.style.top = evt.y + 10 + 'px';
   }
-  
+
   hideTooltip() {
     var tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";

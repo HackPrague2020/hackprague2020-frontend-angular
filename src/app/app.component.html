@@ -35,7 +35,7 @@
         <div style="display: flex">
             <mat-card class="card" style="width: 60%;">
                 <mat-card-header>
-                    <mat-card-title>{{companyName}}: ${{selectedStockPrice | number : '1.2-2'}} 
+                    <mat-card-title>{{companyName}}: ${{selectedStockPrice | number : '1.2-2'}}
                       <a class="custom-tooltip-icon"
                               mat-icon-button
                               matTooltip="{{companyDescription | slice : 0 : 200}}"
@@ -70,20 +70,21 @@
         </div>
         <mat-card class="card main-card">
                 <mat-card-header>
-                    <div style="display:flex;justify-content:space-between;width:100%;padding-bottom:5px;">
+                    <div style="display:flex;justify-content:space-between;width:100%;padding-bottom:5px;align-self:left">
                         <span>
-                        <mat-card-title>What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </mat-card-title>
+                        <mat-card-title>What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invest $100' : ''}}? </mat-card-title>
                         <mat-card-subtitle>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-subtitle>
                         </span>
-                            <mat-button-toggle-group style="align-self:end"  appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
-                                <mat-button-toggle value="abs">Absolute Values</mat-button-toggle>
-                                <mat-button-toggle value="rel">Values per $100</mat-button-toggle>
-                            </mat-button-toggle-group>
+                        <mat-button-toggle-group style="align-self:end"  appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
+                            <mat-button-toggle value="abs">Absolute Values</mat-button-toggle>
+                            <mat-button-toggle value="rel">Values per $100</mat-button-toggle>
+                        </mat-button-toggle-group>
                     </div>
                 </mat-card-header>
                 <mat-card-content style="width: 100%; text-align: center">
                     <app-income-statement
                       styles="margin: auto"
+                      [selectedStockPrice] = "selectedStockPrice"
                       [ticker]="selectedTicker"
                       [quarterIndex]="quarterIndex"
                       [absoluteValues]="mode == 'abs'"
