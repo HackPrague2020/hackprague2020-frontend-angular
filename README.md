@@ -75,7 +75,7 @@ Thirdly and finally, we tied the previous 2 pieces together in a web interface. 
 
 
 
-###Thank you very much for considering our submission to your hackathon :) !!!
+### Thank you very much for considering our submission to your hackathon :) !!!
 
 
 
