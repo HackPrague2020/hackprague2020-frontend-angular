@@ -47,7 +47,6 @@
                       (sliderValueChangeQuarterIndex)="quarterIndex=$event"
                       [quarterIndex]="quarterIndex"
                       [formatQuarter]="formatQuarter"
-
                     ></app-stock-price-chart>
                 </mat-card-content>
             </mat-card>
@@ -59,17 +58,17 @@
         <mat-card class="card main-card">
                 <mat-card-header>
                     <div style="display:flex;justify-content:space-between;width:100%;padding-bottom:5px;">
-                        <h2>What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </h2>
-                            <mat-button-toggle-group style="align-self:end;" appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
-                                <mat-button-toggle value="abs">Absolute Price Values</mat-button-toggle>
-                                <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
+                        <span>
+                        <mat-card-title>What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </mat-card-title>
+                        <mat-card-subtitle>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-subtitle>
+                        </span>
+                            <mat-button-toggle-group style="align-self:end"  appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
+                                <mat-button-toggle value="abs">Absolute Values</mat-button-toggle>
+                                <mat-button-toggle value="rel">Values per $100</mat-button-toggle>
                             </mat-button-toggle-group>
                     </div>
                 </mat-card-header>
                 <mat-card-content>
-                        <div style="display:flex;justify-content:center;width:100%;">
-                            <h1 style="padding:50px">What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </h1>
-                        </div>
                     <app-income-statement
                       [ticker]="selectedTicker"
                       [quarterIndex]="quarterIndex"
