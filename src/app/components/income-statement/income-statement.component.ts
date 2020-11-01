@@ -43,7 +43,7 @@ export class IncomeStatementComponent implements OnInit {
   updateCurrentIncomeStatement(){
     this.stockDataService.getIncomeStatement(this.ticker, 'quarter', 25).subscribe(dataStatement => {
       this.stockDataService.getCashFlowStatement(this.ticker,'quarter',25).subscribe(cashStatement=>{
-        let cash = cashStatement[0];
+        let cash = cashStatement[this.quarterIndex];
         let {revenue,costOfRevenue,operatingIncome,interestExpense,grossProfit,netIncome,weightedAverageShsOutDil:shares} = dataStatement[this.quarterIndex];
         this.stockDataService.getCompanyQuote(this.ticker).subscribe(dataPrice=>{
           let price = this.quarterIndex ? this.selectedStockPrice : dataPrice[0].price ;
@@ -56,8 +56,10 @@ export class IncomeStatementComponent implements OnInit {
           this.administrativeExpense = (operatingIncome - netIncome)/marketCap;
           this.interestExpense = interestExpense/marketCap;
           this.netIncome = netIncome/marketCap;
-          this.capexPercent = cash.capitalExpenditure/cash.netCashProvidedByOperatingActivities*100;
-          this.dividendsAndBuybacksPercent = (-cash.dividendsPaid-cash.commonStockRepurchased-cash.commonStockIssued)/cash.netCashProvidedByOperatingActivities*100;
+          let forShareHolders = -cash.dividendsPaid;
+          let cashWithoutDebtStuff = -cash.netCashUsedForInvestingActivites+forShareHolders;
+          this.capexPercent = -cash.netCashUsedForInvestingActivites/cashWithoutDebtStuff*100;
+          this.dividendsAndBuybacksPercent = forShareHolders/cashWithoutDebtStuff*100;
           //@ts-ignore
           this.statementsLength = dataStatement?.length;
           this.lengthEvent.emit(this.statementsLength);
