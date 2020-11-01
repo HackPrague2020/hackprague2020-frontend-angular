@@ -29,6 +29,7 @@ import { BankSvgComponent } from './components/bank-svg/bank-svg.component';
 import { RightArrowSvgComponent } from './components/right-arrow-svg/right-arrow-svg.component';
 import { RightDownArrowSvgComponent } from './components/right-down-arrow-svg/right-down-arrow-svg.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { AbsPipe } from './abs.pipe';
 
 @NgModule({
@@ -65,7 +66,8 @@ import { AbsPipe } from './abs.pipe';
     MatInputModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,16 +3,27 @@
         <h3>Lemonade</h3>
         <button mat-button>LINK</button>
     </mat-toolbar>
-
+        <mat-sidenav-container class="example-container">
+                <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                             [fixedInViewport]="true" [fixedTopGap]="60">
   <app-search [ticker]="selectedTicker" (tickerChange)="changeTicker($event)"></app-search>
+                    <mat-selection-list [multiple]="false">
+                            <mat-list-option *ngFor="let ticker of tickers" (click)="changeTicker(ticker)">
+                                {{ ticker }}
+                            </mat-list-option>
+                        </mat-selection-list>
+                </mat-sidenav>
+
+                <mat-sidenav-content>
+
 
     <div class="app-content">
         <div style="display: flex">
             <mat-card class="card" style="width: 70%;">
                 <mat-card-header>
                     <mat-card-title>{{companyName}}</mat-card-title>
-                    <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice}}$</mat-card-subtitle>
-                    <mat-card-subtitle>{{ companyDescription }}</mat-card-subtitle>
+                    <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice | number : '1.2-2'}}$</mat-card-subtitle>
+                    
                 </mat-card-header>
                 <mat-card-content>
                     <app-stock-price-chart
@@ -27,19 +38,16 @@
 
             <mat-card class="card" style="width: 30%;">
                 <mat-card-header>
-                    <mat-card-title>Favorites</mat-card-title>
+                    <mat-card-subtitle>{{ companyDescription | slice : 0 : 400 }}...</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-selection-list [multiple]="false">
-                        <mat-list-option *ngFor="let ticker of tickers" (click)="changeTicker(ticker)">
-                            {{ ticker }}
-                        </mat-list-option>
-                    </mat-selection-list>
+                    
                 </mat-card-content>
             </mat-card>
         </div>
         <mat-card class="card main-card">
                 <mat-card-header>
+                    <mat-card-subtitle>Standings for 20{{ getReadableQuarter(quarterIndex) }}</mat-card-subtitle>
                     <div style="display:flex;justify-content:center;width:100%;flex-direction:column">
                         <div style="display:flex;justify-content:center;width:100%;">
                             <mat-button-toggle-group appearance="legacy" [value]="mode" (change)="mode = $event.value" name="mode">
@@ -47,12 +55,11 @@
                                 <mat-button-toggle value="rel">Price Values per $100 Owned</mat-button-toggle>
                             </mat-button-toggle-group>
                         </div>
+                </mat-card-header>
+                <mat-card-content>
                         <div style="display:flex;justify-content:center;width:100%;">
                             <h1 style="padding:50px">What if {{selectedTicker}} was a lemonade stand{{mode === 'rel' ? ' and you invested 100$' : ''}}? </h1>
                         </div>
-                    </div>
-                </mat-card-header>
-                <mat-card-content>
                     <app-income-statement
                       [ticker]="selectedTicker"
                       [quarterIndex]="quarterIndex"
@@ -65,9 +72,10 @@
 
 
     <app-performance-radar-chart></app-performance-radar-chart>
-
     <footer class="app-footer">
-        <span class="mat-caption"></span>
+        <span class="mat-caption">© 2020 BitConeeect</span>
     </footer>
+</mat-sidenav-content>
 
+</mat-sidenav-container>      
 </div>

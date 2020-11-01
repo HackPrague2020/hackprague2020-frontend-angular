@@ -9,7 +9,8 @@
 }
 
 .search-wrapper {
-  margin-top: 5%;
+  /* margin-top: 5%;
   width: 40%;
-  margin-left: 30%;
+  margin-left: 30%; */
+  margin: 16px;
 }
