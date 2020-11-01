@@ -35,7 +35,7 @@
         <div style="display: flex">
             <mat-card class="card" style="width: 60%;">
                 <mat-card-header>
-                    <mat-card-title>{{companyName}}
+                    <mat-card-title>{{companyName}}: ${{selectedStockPrice | number : '1.2-2'}} 
                       <a class="custom-tooltip-icon"
                               mat-icon-button
                               matTooltip="{{companyDescription | slice : 0 : 200}}"
@@ -50,7 +50,7 @@
                       </a>
                     </mat-card-title>
 
-                    <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice | number : '1.2-2'}}$</mat-card-subtitle>
+                    <mat-card-subtitle>{{ selectedTicker }}</mat-card-subtitle>
 
                 </mat-card-header>
                 <mat-card-content>
