@@ -65,6 +65,7 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
+    if (!("ticker" in changes)) return;
     this.stockDataService.getStockPrice(this.ticker).subscribe(data => {
       this.lineChartLabels = [];
       this.lineChartData[0].data = [];

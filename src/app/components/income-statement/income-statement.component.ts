@@ -29,7 +29,7 @@ export class IncomeStatementComponent implements OnInit {
   constructor(private stockDataService: StockDataService) { }
 
   ngOnInit(): void {
-    this.changeEvents.pipe(debounceTime(300)).subscribe(event => this.updateCurrentIncomeStatement());
+    this.changeEvents.pipe(debounceTime(200)).subscribe(event => this.updateCurrentIncomeStatement());
     this.updateCurrentIncomeStatement();
   }
 
@@ -72,8 +72,8 @@ export class IncomeStatementComponent implements OnInit {
     let tooltip = document.getElementById("tooltip");
     tooltip.innerHTML = text;
     tooltip.style.display = "block";
-    tooltip.style.left = evt.screenX + 'px';
-    tooltip.style.top = evt.screenY + 'px';
+    tooltip.style.left = evt.screenX - 80 + 'px';
+    tooltip.style.top = evt.screenY - 60 + 'px';
   }
   
   hideTooltip() {
