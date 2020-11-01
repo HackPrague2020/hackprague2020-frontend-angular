@@ -796,7 +796,7 @@
 		"/>
 </g>
 <rect x="623.425" y="527.92" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20" [attr.font-size]="46 * scale(capex)">-${{ capex | abs | shortNumber}}</text>
+<text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20" [attr.font-size]="46 * scale(capex)">${{ capexPercent | abs | shortNumber}}%</text>
 <g transform="translate(0 -540.36)" (mousemove)="showTooltip($event, 'Dividends and Buybacks: money that the company distributes back to share holders');" (mouseout)="hideTooltip()">
 	<g>
 		<path fill="#CA639A" d="M465.627,1389.762l-5.352-2.848l-2.88,4.757l5.384,3.036L465.627,1389.762z"/>
@@ -963,5 +963,5 @@
 	</g>
 </g>
 <rect x="286.924" y="809.994" fill="none" width="178.729" height="41.32"/>
-<text transform="matrix(1 0 0 1 416.1787 834.3145)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(dividendsAndBuybacks)" text-anchor="end">${{ dividendsAndBuybacks | abs | shortNumber}}</text>
+<text transform="matrix(1 0 0 1 416.1787 834.3145)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(dividendsAndBuybacks)" text-anchor="end">${{ dividendsAndBuybacksPercent | abs | shortNumber}}%</text>
 </svg>

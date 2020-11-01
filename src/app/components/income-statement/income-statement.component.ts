@@ -26,6 +26,8 @@ export class IncomeStatementComponent implements OnInit {
   administrativeExpense = 0;
   dividendsAndBuybacks = 0;
   capex = 0;
+  capexPercent = 0;
+  dividendsAndBuybacksPercent = 0;
 
   constructor(private stockDataService: StockDataService) { }
 
@@ -54,8 +56,8 @@ export class IncomeStatementComponent implements OnInit {
           this.administrativeExpense = (operatingIncome - netIncome)/marketCap;
           this.interestExpense = interestExpense/marketCap;
           this.netIncome = netIncome/marketCap;
-          this.capex = cash.capitalExpenditure/marketCap;
-          this.dividendsAndBuybacks = (-cash.dividendsPaid-cash.commonStockRepurchased-cash.commonStockIssued)/marketCap;
+          this.capexPercent = cash.capitalExpenditure/cash.netCashProvidedByOperatingActivities*100;
+          this.dividendsAndBuybacksPercent = (-cash.dividendsPaid-cash.commonStockRepurchased-cash.commonStockIssued)/cash.netCashProvidedByOperatingActivities*100;
           //@ts-ignore
           this.statementsLength = dataStatement?.length;
           this.lengthEvent.emit(this.statementsLength);
