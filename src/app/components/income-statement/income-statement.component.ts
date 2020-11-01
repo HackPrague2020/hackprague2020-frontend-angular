@@ -73,14 +73,13 @@ export class IncomeStatementComponent implements OnInit {
   }
 
   showTooltip(evt, text) {
-    console.log(evt)
     let tooltip = document.getElementById("tooltip");
     tooltip.innerHTML = text;
     tooltip.style.display = "block";
     tooltip.style.left = evt.x + 10 + 'px';
     tooltip.style.top = evt.y + 10 + 'px';
   }
-  
+
   hideTooltip() {
     var tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";
