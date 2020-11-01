@@ -66,4 +66,18 @@ export class IncomeStatementComponent implements OnInit {
   scale(value) {
     return Math.abs(value/this.revenue)/2+0.5;
   }
+
+  showTooltip(evt, text) {
+    console.log(evt)
+    let tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = text;
+    tooltip.style.display = "block";
+    tooltip.style.left = evt.screenX + 'px';
+    tooltip.style.top = evt.screenY + 'px';
+  }
+  
+  hideTooltip() {
+    var tooltip = document.getElementById("tooltip");
+    tooltip.style.display = "none";
+  }
 }
