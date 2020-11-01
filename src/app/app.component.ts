@@ -10,7 +10,7 @@ import {tick} from '@angular/core/testing';
 export class AppComponent {
   title = 'hackprague2020-frontend-angular';
   quarterIndex = 0;
-  tickers = ["GOOG", "AAPL", "INTC", "TSLA", "AMZN", "MCD"];
+  tickers = ["GOOG", "AAPL", "INTC", "AMZN", "MCD", "TSLA", "F", "GM", "DAL", "AAL"];
   selectedTicker = "TSLA";
   companyName: string;
   companyDescription: string;
