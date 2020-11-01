@@ -21,7 +21,21 @@
         <div style="display: flex">
             <mat-card class="card" style="width: 70%;">
                 <mat-card-header>
-                    <mat-card-title>{{companyName}}</mat-card-title>
+                    <mat-card-title>{{companyName}}
+                      <a class="company-description-icon"
+                              mat-icon-button
+                              matTooltip="{{companyDescription | slice : 0 : 200}}"
+                              [href]=companyWebsite
+                              target="_blank"
+                              matTooltipPosition="right"
+                      >
+                      <mat-icon>
+                        help_center
+                      </mat-icon>
+
+                      </a>
+                    </mat-card-title>
+
                     <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice | number : '1.2-2'}}$</mat-card-subtitle>
 
                 </mat-card-header>
