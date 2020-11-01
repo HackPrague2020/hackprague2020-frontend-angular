@@ -14,7 +14,8 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
   @Input() ticker: string;
   @Input() quarterIndex: number;
   @Input() formatQuarter;
-  @Output() sliderValueChange = new EventEmitter<any>();
+  @Output() sliderValueChangePrice = new EventEmitter<any>();
+  @Output() sliderValueChangeQuarterIndex = new EventEmitter<any>();
 
   numOfQuarters = 23;
 
@@ -25,7 +26,8 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
     let numOfDays = closePrices.length;
     let daysPerQuarter = Math.floor(numOfDays / this.numOfQuarters);
     let dayIndex = (numOfDays - daysPerQuarter * this.quarterIndex) - 1;
-    this.sliderValueChange.emit(closePrices[dayIndex])
+    this.sliderValueChangePrice.emit(closePrices[dayIndex]);
+    this.sliderValueChangeQuarterIndex.emit(this.quarterIndex);
   }
 
 
@@ -71,7 +73,7 @@ export class StockPriceChartComponent implements OnInit, OnChanges {
         this.lineChartData[0]["data"].push(day.close);
         this.lineChartLabels.push(day.date);
       }
-      this.sliderValueChange.emit(this.lineChartData[0]["data"][this.lineChartData[0]["data"].length - 1])
+      this.sliderValueChangePrice.emit(this.lineChartData[0]["data"][this.lineChartData[0]["data"].length - 1])
     });
   }
 
