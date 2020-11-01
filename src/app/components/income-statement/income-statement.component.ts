@@ -54,7 +54,7 @@ export class IncomeStatementComponent implements OnInit {
           this.interestExpense = interestExpense/marketCap;
           this.netIncome = netIncome/marketCap;
           this.capex = cash.capitalExpenditure/marketCap;
-          this.dividendsAndBuybacks = (cash.dividendsPaid+cash.commonStockRepurchased-cash.commonStockIssued)/marketCap;
+          this.dividendsAndBuybacks = (-cash.dividendsPaid-cash.commonStockRepurchased-cash.commonStockIssued)/marketCap;
           //@ts-ignore
           this.statementsLength = dataStatement?.length;
           this.lengthEvent.emit(this.statementsLength);
