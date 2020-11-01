@@ -785,7 +785,7 @@
 		"/>
 </g>
 <rect x="623.425" y="527.92" fill="none" width="178.729" height="29.428"/>
-<text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20">-$128M</text>
+<text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20" [attr.font-size]="46 * scale(capex)">{{ capex >= 0 ? "+" : "-" }}${{ capex | abs | shortNumber}}</text>
 <g transform="translate(0 -540.36)">
 	<g>
 		<path fill="#CA639A" d="M465.627,1389.762l-5.352-2.848l-2.88,4.757l5.384,3.036L465.627,1389.762z"/>
@@ -950,5 +950,5 @@
 	</g>
 </g>
 <rect x="286.924" y="809.994" fill="none" width="178.729" height="41.32"/>
-<text transform="matrix(1 0 0 1 306.1787 834.3145)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="32">+$322k</text>
+<text transform="matrix(1 0 0 1 306.1787 834.3145)" fill="#6CA529" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="32" [attr.font-size]="46 * scale(dividendsAndBuybacks)">{{ dividendsAndBuybacks >= 0 ? "+" : "-" }}${{ dividendsAndBuybacks | abs | shortNumber}}</text>
 </svg>
