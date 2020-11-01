@@ -4,6 +4,7 @@
 <p>After paying wages and other: ${{operatingIncome | shortNumber}}</p>
 <p>Sadly, the lemonade company has to pay taxes and interest, the reamining profit is: ${{netIncome | shortNumber}}</p> -->
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100%" height="100%" viewBox="0 0 898.478 854.348" enable-background="new 0 0 898.478 854.348"
 	 xml:space="preserve">
@@ -796,7 +797,7 @@
 </g>
 <rect x="623.425" y="527.92" fill="none" width="178.729" height="29.428"/>
 <text transform="matrix(1 0 0 1 670.0757 543.1191)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" font-size="20" [attr.font-size]="46 * scale(capex)">{{ capex >= 0 ? "+" : "-" }}${{ capex | abs | shortNumber}}</text>
-<g transform="translate(0 -540.36)">
+<g transform="translate(0 -540.36)" (mousemove)="showTooltip($event, 'Dividends!');" (mouseout)="hideTooltip()">
 	<g>
 		<path fill="#CA639A" d="M465.627,1389.762l-5.352-2.848l-2.88,4.757l5.384,3.036L465.627,1389.762z"/>
 		<path fill="#CA639A" d="M478.468,1389.762l5.352-2.848l2.881,4.757l-5.385,3.036L478.468,1389.762z"/>

@@ -31,6 +31,10 @@ import { RightDownArrowSvgComponent } from './components/right-down-arrow-svg/ri
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AbsPipe } from './abs.pipe';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { AbsPipe } from './abs.pipe';
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MatSidenavModule
+    MatIconModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    LoadingBarHttpClientModule,
+    LoadingBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

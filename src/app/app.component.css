@@ -1,4 +1,4 @@
-.app-content { margin: auto; max-width: 1200px; padding: 10px; min-height: 90vh; }
+.app-content { margin: auto; max-width: 1000px; padding: 10px; min-height: 90vh; }
 .card { margin: 10px; }
 
 .app-container {
@@ -35,7 +35,7 @@ h3.app-toolbar {
     left: 0;
     right: 0;
   }
-  
+
   .example-sidenav {
     display: flex;
     align-items: center;
@@ -43,17 +43,27 @@ h3.app-toolbar {
     width: 200px;
     /* background: rgba(255, 0, 0, 0.5); */
   }
-  
+
   .example-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
   }
-  
+
   .example-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
   }
+
+.company-description-icon {
+  position: relative;
+  bottom: 4px;
+  right: 5px;
+}
+
+.company-description-icon:hover{
+  cursor: help;
+}

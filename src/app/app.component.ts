@@ -14,6 +14,7 @@ export class AppComponent {
   selectedTicker = "TSLA";
   companyName: string;
   companyDescription: string;
+  companyWebsite: string;
 
   selectedStockPrice: number;
   mode = "rel";
@@ -31,7 +32,8 @@ export class AppComponent {
       this.selectedTicker = ticker;
       this.stockDataService.getProfile(this.selectedTicker).subscribe(profile => {
         this.companyName = profile[0]['companyName'];
-        this.companyDescription = profile[0]['description']
+        this.companyDescription = profile[0]['description'];
+        this.companyWebsite = profile[0]['website'];
 
       })
   }
