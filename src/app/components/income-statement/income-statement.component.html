@@ -6,7 +6,7 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <div id="tooltip" display="none" style="display: none;"></div>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100%" height="100%" viewBox="0 0 898.478 854.348" enable-background="new 0 0 898.478 854.348"
+	 width="90%" height="90%" style="margin: auto" viewBox="0 0 898.478 854.348" enable-background="new 0 0 898.478 854.348"
 	 xml:space="preserve">
 <g id="XMLID_906_">
 	<ellipse id="XMLID_909_" fill="#FFE165" cx="83.716" cy="365.68" rx="63.383" ry="47.838"/>
@@ -161,7 +161,7 @@
 		</g>
 	</g>
 </g>
-<g>
+<g  (mousemove)="showTooltip($event, 'Lemon stand!');" (mouseout)="hideTooltip()">
 	<path fill="#CFCDD6" d="M530.695,371.504c-3.453,0-6.252-2.725-6.252-6.085v-59.351c0-3.36,2.799-6.084,6.252-6.084
 		c3.455,0,6.254,2.724,6.254,6.084v59.351C536.949,368.779,534.15,371.504,530.695,371.504z"/>
 	<path fill="#DEE1E7" d="M530.695,371.504c-3.453,0-6.252-2.725-6.252-6.085v-59.351c0-3.36,2.799-6.084,6.252-6.084V371.504z"/>
@@ -405,7 +405,7 @@
 <text transform="matrix(1 0 0 1 282.9453 229.5874)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(otherExpenses)">-${{otherExpenses | shortNumber}}</text>
 <rect x="492.861" y="211.348" fill="none" width="178.729" height="29.428"/>
 <text transform="matrix(1 0 0 1 539.5112 226.5474)" fill="#C64530" font-family="'Roboto'" font-style="italic" font-weight="bold" [attr.font-size]="46 * scale(administrativeExpense)">-${{administrativeExpense | shortNumber}}</text>
-<g id="g1237" transform="translate(-0.81857823,5.9346921)">
+<g id="g1237" transform="translate(-0.81857823,5.9346921)"  (mousemove)="showTooltip($event, 'Income!');" (mouseout)="hideTooltip()">
 	<g id="g703" transform="matrix(0.09111509,0,0,0.05567534,30.086765,135.95622)">
 		<g id="g628">
 			<g id="g590">
@@ -753,7 +753,7 @@
 <path fill="#B0D3F0" d="M747.489,463.674h-23.132c-1.967,0-3.47-1.504-3.47-3.471l0,0c0-1.966,1.503-3.47,3.47-3.47h23.133
 	c1.966,0,3.47,1.504,3.47,3.47l0,0C750.959,462.17,749.456,463.674,747.489,463.674"/>
 <path fill="#E4F4F9" d="M735.923,523.818L735.923,523.818c6.361,0,11.565-5.205,11.565-11.566v-48.578h-23.132v48.578
-	C724.357,518.613,729.561,523.818,735.923,523.818"/>
+	C724.357,518.613,729.561,523.818,735.923,523.818" (mousemove)="showTooltip($event, 'RnD!');" (mouseout)="hideTooltip()" />
 <g>
 	<path fill="#90BAE1" d="M735.923,471.77h-6.94c-0.693,0-1.156-0.463-1.156-1.156s0.463-1.156,1.156-1.156h6.94
 		c0.693,0,1.156,0.463,1.156,1.156S736.617,471.77,735.923,471.77z"/>

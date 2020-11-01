@@ -68,8 +68,9 @@
                             </mat-button-toggle-group>
                     </div>
                 </mat-card-header>
-                <mat-card-content>
+                <mat-card-content style="width: 100%; text-align: center">
                     <app-income-statement
+                      styles="margin: auto"
                       [ticker]="selectedTicker"
                       [quarterIndex]="quarterIndex"
                       [absoluteValues]="mode == 'abs'"
