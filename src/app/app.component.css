@@ -57,13 +57,3 @@ h3.app-toolbar {
     left: 0;
     right: 0;
   }
-
-.company-description-icon {
-  position: relative;
-  bottom: 4px;
-  right: 5px;
-}
-
-.company-description-icon:hover{
-  cursor: help;
-}

@@ -19,10 +19,10 @@
 
     <div class="app-content">
         <div style="display: flex">
-            <mat-card class="card" style="width: 70%;">
+            <mat-card class="card" style="width: 60%;">
                 <mat-card-header>
                     <mat-card-title>{{companyName}}
-                      <a class="company-description-icon"
+                      <a class="custom-tooltip-icon"
                               mat-icon-button
                               matTooltip="{{companyDescription | slice : 0 : 200}}"
                               [href]=companyWebsite
@@ -51,13 +51,8 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="card" style="width: 30%;">
-                <mat-card-header>
-                    <mat-card-subtitle>{{ companyDescription | slice : 0 : 400 }}...</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-
-                </mat-card-content>
+            <mat-card class="card" style="width: 40%;">
+              <app-performance-radar-chart [ticker]="selectedTicker" style="width: 100%; height: 100%"></app-performance-radar-chart>
             </mat-card>
         </div>
         <mat-card class="card main-card">
@@ -83,9 +78,6 @@
                 </mat-card-content>
             </mat-card>
     </div>
-
-
-    <app-performance-radar-chart [ticker]="selectedTicker"></app-performance-radar-chart>
 
     <footer class="app-footer">
         <span class="mat-caption">© 2020 BitConeeect</span>

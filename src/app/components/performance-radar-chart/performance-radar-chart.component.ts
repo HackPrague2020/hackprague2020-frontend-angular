@@ -14,24 +14,24 @@ export class PerformanceRadarChartComponent implements OnInit {
   // Radar
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
-    
+
       scale:{
         ticks:{
           display:false
         }
       }
-    
+
   };
 
 
   // List of JSON keys can be found at https://financialmodelingprep.com/developer/docs/#Company-Financial-Ratios
   public  radarChartConfigs = [
     {
-      label: 'Debt',
+      label: 'Total Debt',
       jsonKey: 'debtToEquityTTM'
     },
     {
-      label: 'Current Debt',
+      label: 'Short Term Debt',
       jsonKey: 'currentRatioTTM'
     },
     {
@@ -60,7 +60,7 @@ export class PerformanceRadarChartComponent implements OnInit {
       console.log(keyMetrics);
 
       this.stockDataService.getFinancialRatios(symbol).subscribe(data2 => {
-        
+
       let financialRatios = data2[0];
         this.radarChartData = [{
           data: [],

@@ -1,7 +1,27 @@
 <div class="performance-radar-chart-wrapper">
   <div *ngIf="dataLoaded else spinner">
     <div>
-      <div style="display: block">
+      <mat-card-header>
+        <mat-card-title>Financial Health
+          <a class="custom-tooltip-icon"
+             mat-icon-button
+             matTooltip="Read more about equity vs debt ratios on www.investopedia.com"
+             href="https://www.investopedia.com/financial-edge/0910/6-basic-financial-ratios-and-what-they-tell-you.aspx"
+             target="_blank"
+             matTooltipPosition="right"
+          >
+            <mat-icon>
+              help_center
+            </mat-icon>
+
+          </a>
+        </mat-card-title>
+
+        <mat-card-subtitle>The higher the equity and the lower the debt, the more stable the company is</mat-card-subtitle>
+
+      </mat-card-header>
+
+      <div style="display: block; width: 100%; height: 100%">
         <canvas baseChart
                 [datasets]="radarChartData"
                 [options]="radarChartOptions"
@@ -11,8 +31,8 @@
       </div>
     </div>
   </div>
-  <ng-template #spinner>
-    <mat-spinner></mat-spinner>
+  <ng-template #spinner >
+    <mat-spinner class="custom-spinner"></mat-spinner>
   </ng-template>
   <div>
 
