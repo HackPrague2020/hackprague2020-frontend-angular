@@ -72,7 +72,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
     MatSidenavModule,
     LoadingBarHttpClientModule,
     LoadingBarModule,
