@@ -23,12 +23,13 @@
                 <mat-card-header>
                     <mat-card-title>{{companyName}}</mat-card-title>
                     <mat-card-subtitle>{{ selectedTicker }}: {{selectedStockPrice | number : '1.2-2'}}$</mat-card-subtitle>
-                    
+
                 </mat-card-header>
                 <mat-card-content>
                     <app-stock-price-chart
                       [ticker]="selectedTicker"
-                      (sliderValueChange)="selectedStockPrice=$event"
+                      (sliderValueChangePrice)="selectedStockPrice=$event"
+                      (sliderValueChangeQuarterIndex)="quarterIndex=$event"
                       [quarterIndex]="quarterIndex"
                       [formatQuarter]="formatQuarter"
 
@@ -41,7 +42,7 @@
                     <mat-card-subtitle>{{ companyDescription | slice : 0 : 400 }}...</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    
+
                 </mat-card-content>
             </mat-card>
         </div>
@@ -77,5 +78,5 @@
     </footer>
 </mat-sidenav-content>
 
-</mat-sidenav-container>      
+</mat-sidenav-container>
 </div>
