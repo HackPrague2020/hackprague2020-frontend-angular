@@ -6,7 +6,8 @@
 
 ## 3rd Party Dependencies
 1. Angular Material UI Components (https://v9.material.angular.io/)
-1. 
+1. Free SVG Image repository (https://freesvg.org/)
+1. API for real time financial data (https://financialmodelingprep.com/)
 
 
 ## Architecture Overview
