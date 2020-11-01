@@ -72,8 +72,8 @@ export class IncomeStatementComponent implements OnInit {
     let tooltip = document.getElementById("tooltip");
     tooltip.innerHTML = text;
     tooltip.style.display = "block";
-    tooltip.style.left = evt.screenX - 80 + 'px';
-    tooltip.style.top = evt.screenY - 60 + 'px';
+    tooltip.style.left = evt.x + 10 + 'px';
+    tooltip.style.top = evt.y + 10 + 'px';
   }
   
   hideTooltip() {

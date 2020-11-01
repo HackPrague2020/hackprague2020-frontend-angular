@@ -7,7 +7,7 @@
              matInput
              style="font-weight: 500; font-size: 48px"
              [value]="ticker"
-             (input)="null"
+             (input)="inputChanged($event.target.value)"
              [formControl]="myControl"
              [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="inputChanged($event.option.value)">
