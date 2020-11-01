@@ -69,7 +69,7 @@ export class IncomeStatementComponent implements OnInit {
   }
 
   scale(value) {
-    return Math.abs(value/this.revenue)/2+0.5;
+    return Math.max(Math.min(Math.abs(value/this.revenue)/2+0.5, 1.3), 0.5);
   }
 
   showTooltip(evt, text) {
