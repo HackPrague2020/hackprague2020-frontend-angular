@@ -1,3 +1,5 @@
+Check out the demo at https://hackprague2020.github.io/hackprague2020-frontend-angular/hackprague2020-frontend-angular/index.html
+
 ## Introduction
 We hear it all the time: "Saving money is not enough". If you want to build wealth, you need to invest your capital back into the market. 
 But how does one go about doing it? If it is so important, why is it so hard? Could we maybe make it easier for ordinary person to invest? 
@@ -47,7 +49,7 @@ With this, we have an intuitive common ground at which different stocks cant be 
 Take a look at how it works at 
 
 ## Live Page:
-Try it out yourself at https://hackprague2020.github.io/hackprague2020-frontend-angular/ and let us know what you think 
+Try it out yourself at https://hackprague2020.github.io/hackprague2020-frontend-angular/hackprague2020-frontend-angular/index.html and let us know what you think 
 
 ## What was done by us?
 Our original contributions to the project are 3-fold.
